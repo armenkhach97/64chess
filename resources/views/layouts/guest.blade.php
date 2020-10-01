@@ -12,13 +12,22 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.2.1/dist/alpine.js" defer></script>
     </head>
     <body>
-        <div class="font-sans text-gray-900 antialiased">
-            {{ $slot }}
+        <div class="min-h-screen bg-gray-100">
+            @livewire('navigartion-dropdown-admin')
+
+            <!-- Page Content -->
+            <main>
+                {{ $adminslot }}
+            </main>
         </div>
+
+        @stack('modals')
+
+        @livewireScripts
     </body>
 </html>

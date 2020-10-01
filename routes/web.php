@@ -22,9 +22,13 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/dashboard', function () {
         return view('dashboard');
-    })->name('dashboard');
-    Route::get('/user', 'App\Http\Controllers\AdminController@index1');
+        })->name('dashboard');
+    Route::get('/books', 'App\Http\Controllers\BookController@allBooks')
+        ->name('books');
+    Route::get('/homeworks', 'App\Http\Controllers\HomeworkController@allHomeworks')
+        ->name('homeworks');
 });
 Route::middleware(['admin'])->group(function(){
-    Route::get('/admin', 'App\Http\Controllers\AdminController@index');
+    Route::get('/admin', 'App\Http\Controllers\AdminController@index')->name('users');
+    Route::get('/add_books', 'App\Http\Controllers\BookController@addBook')->name('add_books');
 });
