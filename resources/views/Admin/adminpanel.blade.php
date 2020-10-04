@@ -1,8 +1,10 @@
 <x-guest-layout>
-    
-        <h1>admin panel</h1>
-
-    <x-slot name="adminslot">
+    <x-slot name="slot">
+      <div class="container">
+        <h1>Users</h1>
+       <a href="#" class="btn btn-success">New</a>
+      </div>
+      
       <div class="container">
        <div class="row">
         <table class="table">
@@ -12,7 +14,7 @@
                 <th scope="col-md-3">Name</th>
                 <th scope="col-md-3">Email</th>
                 <th scope="col-md-2">Roles</th>
-                <th scope="col-md-2">Buttom</th>
+                <th scope="col-md-2">Button</th>
               </tr>
             </thead>
             <tbody>
@@ -27,8 +29,8 @@
                     @endforeach
                 </td>
                 <td>
-                    <button class="btn btn-success">Edit</button>
-                    <button class="btn btn-danger">Delete</button>
+                    <a href="{{route('edit_user',$user->id)}}" class="btn btn-primary">Edit</a>
+                    <a href="{{route('delete_user',$user->id)}}" class="btn btn-danger">Delete</a>
                 </td>
               </tr> 
                 @endforeach

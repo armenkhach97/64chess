@@ -5,7 +5,7 @@
             {{ __('Dashboard') }}
         </h2>
         @if (Auth::user()->hasRole('admin'))
-            <a href="{{route('admin')}}" class="btn btn-success">Admin page</a>
+            <a href="{{route('users')}}" class="btn btn-success">Admin page</a>
         @endif
     </x-slot>
 </x-app-layout>
