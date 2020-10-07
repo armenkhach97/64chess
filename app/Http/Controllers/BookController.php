@@ -24,17 +24,26 @@ class BookController extends Controller
             $file = $req->file('book_link');
             $image_name = $image->getClientOriginalExtension();
             $book_name = $file->getClientOriginalExtension();
-            $imagename = time() . '.' . $image_name;
-            $bookname = time() . '.' . $book_name;
+            $imagename = 'image\\'.time() . '.' . $image_name;
+            $bookname = 'book\\'.time() . '.' . $book_name;
             $image -> move('books\image',$imagename);
             $file -> move('books\book',$bookname);
             $book->image = $imagename;
             $book->link = $bookname;
 
         }else{
-            return redirect()->route('Admin.add_book')->with('success','imege or book error');
+            return redirect()->route('add_books')->with('success','imege or book error');
         }
         $book->save();
-        return redirect()->route('Admin.add_books')->with('success','Book added');
+        return redirect()->route('add_books')->with('success','Book added');
+    }
+    public function deleteBook($id){
+        $book = Book::find($id);
+        $booklink = $book->link;
+        $bookimage = $book->image;
+        Book::find($id)->delete();
+        File::delete(public_path().'\books\\'.$booklink);
+        File::delete(public_path().'\books\\'.$bookimage);
+        return redirect()->route('admin_books')->with('success','book delete');
     }
 }

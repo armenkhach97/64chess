@@ -24,8 +24,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/dashboard', function () {
         return view('dashboard');
         })->name('dashboard');
-    Route::get('/books', 'App\Http\Controllers\BookController@allBooks')
-        ->name('books');
+    Route::get('/book', 'App\Http\Controllers\BookController@allBooks')
+        ->name('user_book');
     Route::get('/homeworks', 'App\Http\Controllers\HomeworkController@allHomeworks')
         ->name('homeworks');
 });
@@ -38,8 +38,10 @@ Route::middleware(['admin'])->group(function(){
         return view('Admin.add_books');
     })->name('add_books');
     Route::post('/add_book', 'App\Http\Controllers\BookController@add_book')->name('add_book');
-    Route::get('/books', 'App\Http\Controllers\BookController@allBooksAdmin')
-    ->name('books');
+    Route::get('/admin/books', 'App\Http\Controllers\BookController@allBooksAdmin')
+    ->name('admin_books');
+    Route::get('/admin/books_delete/{id}', 'App\Http\Controllers\BookController@deleteBook')
+    ->name('delete_book');
     Route::get('/edit_user/{id}',function($id){
         $roles = Role::all();
         return view('Admin.edit_user',['user_id'=>$id,'roles'=>$roles]);
