@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d4e3a1b-beb3-4241-bab7-0f9847353f85" name="Default Changelist" comment="dddd" />
+    <list default="true" id="3d4e3a1b-beb3-4241-bab7-0f9847353f85" name="Default Changelist" comment="dddd">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_27_2020_1_39_AM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_27_2020_1_39_AM__Default_Changelist_.xml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -217,6 +220,7 @@
       <updated>1601156296404</updated>
       <workItem from="1601156302223" duration="6009000" />
       <workItem from="1601204377902" duration="3133000" />
+      <workItem from="1602534350513" duration="645000" />
     </task>
     <task id="LOCAL-00001" summary="9.27.2020">
       <created>1601209631672</created>
