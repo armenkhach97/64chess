@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\Customers;
+use App\Models\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,29 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/dashboard', function () {
         return view('dashboard');
-    })->name('dashboard');
-    Route::get('/user', 'App\Http\Controllers\AdminController@index1');
+        })->name('dashboard');
+    Route::get('/book', 'App\Http\Controllers\BookController@allBooks')
+        ->name('user_book');
+    Route::get('/homeworks', 'App\Http\Controllers\HomeworkController@allHomeworks')
+        ->name('homeworks');
 });
 Route::middleware(['admin'])->group(function(){
-    Route::get('/admin', 'App\Http\Controllers\AdminController@index');
+    Route::get('/admin', 'App\Http\Controllers\AdminController@index')->name('users');
+    Route::get('/add_books', function(){
+        return view('Admin.add_books');
+    })->name('add_books');
+    Route::get('/add_books', function(){
+        return view('Admin.add_books');
+    })->name('add_books');
+    Route::post('/add_book', 'App\Http\Controllers\BookController@add_book')->name('add_book');
+    Route::get('/admin/books', 'App\Http\Controllers\BookController@allBooksAdmin')
+    ->name('admin_books');
+    Route::get('/admin/books_delete/{id}', 'App\Http\Controllers\BookController@deleteBook')
+    ->name('delete_book');
+    Route::get('/edit_user/{id}',function($id){
+        $roles = Role::all();
+        return view('Admin.edit_user',['user_id'=>$id,'roles'=>$roles]);
+    })->name('edit_user');
+    Route::post('/edit_user/{id}','App\Http\Controllers\AdminController@editUser')->name('edit_user_id');
+    Route::get('/delete_user/{id}','App\Http\Controllers\AdminController@deleteUser')->name('delete_user');
 });
