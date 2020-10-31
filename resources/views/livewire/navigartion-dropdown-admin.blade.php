@@ -22,7 +22,7 @@
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('homeworks') }}" :active="request()->routeIs('homeworks')">
+                    <x-jet-nav-link href="{{ route('admin_homework') }}" :active="request()->routeIs('homeworks')">
                         {{ __('Homeworks') }}
                     </x-jet-nav-link>
                 </div>

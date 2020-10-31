@@ -48,4 +48,5 @@ Route::middleware(['admin'])->group(function(){
     })->name('edit_user');
     Route::post('/edit_user/{id}','App\Http\Controllers\AdminController@editUser')->name('edit_user_id');
     Route::get('/delete_user/{id}','App\Http\Controllers\AdminController@deleteUser')->name('delete_user');
+    Route::get('/homeworks', 'App\Http\Controllers\HomeworkController@allAdminHomework')->name('admin_homework');
 });

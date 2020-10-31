@@ -4,16 +4,16 @@
             <form action="#" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                <div class="form-group">
-                <label>Book title</label>
-                <input type="text" name="book_title" placeholder="Book title">
+                <label>Homework title</label>
+                <input type="text" name="homework_title" placeholder="Homework title">
                </div>
                <div class="form-group">
-                <label>Book link</label>
-                <input type="file" name="book_link" >
+                <label>Homework content</label>
+                <input type="textarea" name="homework_content" >
                </div>
                <div class="form-group">
-                <label>Book image</label>
-                <input type="file" name="book_image" >
+                <label>Homework image</label>
+                <input type="file" name="homework_image" >
                </div>
                <button type="submit" class="btn btn-success">Save</button>
             </form>  
